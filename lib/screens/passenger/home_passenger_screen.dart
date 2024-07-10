@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'ride_booking_screen.dart';
 import '../login_screen.dart';
+import 'ProfileSettingsScreen.dart';
+import 'RideHistoryScreen.dart';
+import 'ride_booking_screen.dart';
 
 class HomePassengerScreen extends StatelessWidget {
   const HomePassengerScreen({super.key});
@@ -60,7 +62,10 @@ class HomePassengerScreen extends StatelessWidget {
             const SizedBox(height: 10),
             ElevatedButton.icon(
               onPressed: () {
-                // Navigate to ride history
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RideHistoryScreen()),
+                );
               },
               icon: const Icon(Icons.history),
               label: const Text('Ride History'),
@@ -68,7 +73,10 @@ class HomePassengerScreen extends StatelessWidget {
             const SizedBox(height: 10),
             ElevatedButton.icon(
               onPressed: () {
-                // Navigate to profile settings
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileSettingsScreen()),
+                );
               },
               icon: const Icon(Icons.person),
               label: const Text('Profile Settings'),
