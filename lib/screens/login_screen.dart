@@ -1,3 +1,4 @@
+// screens/login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:new_mashi/screens/passenger/home_passenger_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,12 +33,12 @@ class _LoginScreenState extends State<LoginScreen> {
             const SnackBar(content: Text('Login successful!')),
           );
           // Navigate to the appropriate home screen based on account type
-          if (user.accountType == 'passenger') {
+          if (user.accountType == 'passenger' && context.mounted) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const HomePassengerScreen()),
             );
-          } else if (user.accountType == 'driver') {
+          } else if (user.accountType == 'driver' && context.mounted) {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => const HomeDriverScreen()),

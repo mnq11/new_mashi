@@ -8,11 +8,13 @@ class HomeDriverScreen extends StatelessWidget {
   Future<void> _logout(BuildContext context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.clear();
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginScreen()),
-          (Route<dynamic> route) => false,
-    );
+    if (context.mounted) {  // Ensuring the context is still valid
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+            (Route<dynamic> route) => false,
+      );
+    }
   }
 
   @override

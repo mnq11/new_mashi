@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'ride_booking_screen.dart';
 import '../login_screen.dart';
 
 class HomePassengerScreen extends StatelessWidget {
@@ -49,7 +49,10 @@ class HomePassengerScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton.icon(
               onPressed: () {
-                // Navigate to booking screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RideBookingScreen()),
+                );
               },
               icon: const Icon(Icons.book),
               label: const Text('Book a Ride'),
